@@ -1,0 +1,5 @@
+Flask-Mysql
+flask-table
+flask_cors
+flask_jwt_extended
+flask_httpauth
