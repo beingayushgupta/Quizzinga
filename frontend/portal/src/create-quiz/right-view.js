@@ -40,7 +40,7 @@ class Rightview extends React.Component {
                                     </Row>
                                 </Col>
                                 <Col xs={6} md={3}>
-                                    <img className="question-image"src={profile}></img>   
+                                    <img style={{width:'6em', height:'4em'}}className="question-image"src={profile}></img>   
                                 </Col>
                             </Row>
                             <Card.Text></Card.Text>

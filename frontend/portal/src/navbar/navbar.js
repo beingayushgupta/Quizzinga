@@ -21,11 +21,11 @@ class NavbarComponent extends React.Component {
         const loginRegLink = (
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a href="/login">Login
-                </a>             
+                <Nav.Link href="/login">Login
+                </Nav.Link>             
             </li>
               <li className="nav-item">
-                <a href="/register">Register</a>
+                <Nav.Link href="/register">Register</Nav.Link>
               </li>
             </ul>
           );
@@ -36,9 +36,9 @@ class NavbarComponent extends React.Component {
                 <Nav.Link href="/profile"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></Nav.Link>
               </li>
               <li className="nav-item">
-                <a href="" onClick={this.logOut.bind(this)} className="nav-link">
+                <Nav.Link href="" onClick={this.logOut.bind(this)} className="nav-link">
                   Logout
-                </a>
+                </Nav.Link>
               </li>
             </ul>
           );
@@ -50,13 +50,7 @@ class NavbarComponent extends React.Component {
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></Nav.Link>
-                        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                        </NavDropdown>
+                        <Nav.Link style={{fontWeight:'bold', fontSize:'1.5em'}}>Quizzinga</Nav.Link>
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" />

@@ -18,7 +18,7 @@ class PreviousContests extends React.Component {
                     <Table striped bordered hover>
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>S.no</th>
                             <th>Name</th>
                             <th>Ended On</th>
                         </tr>

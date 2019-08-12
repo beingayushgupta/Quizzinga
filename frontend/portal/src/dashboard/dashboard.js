@@ -1,4 +1,5 @@
 import React from 'react';
+import NavbarComponent from '../navbar/navbar';
 import {Container, Row, Col} from 'react-bootstrap';
 import PreviousContests from './previous';
 import OngoingContests from './ongoing';
@@ -74,6 +75,7 @@ class Dashboard extends React.Component {
         return (
 
             <React.Fragment>
+                <NavbarComponent/>
                 <div>
                     <Container>
                         <Row>

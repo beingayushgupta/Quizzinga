@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import NavbarComponent from '../navbar/navbar';
 import { register } from './UserFunctions'
 
 class Register extends Component {
@@ -36,6 +37,9 @@ class Register extends Component {
 
   render() {
     return (
+      <React.Fragment>
+        <NavbarComponent/>
+      
       <div className="container">
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
@@ -95,6 +99,7 @@ class Register extends Component {
           </div>
         </div>
       </div>
+    </React.Fragment>
     )
   }
 }

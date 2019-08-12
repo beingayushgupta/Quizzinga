@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { login } from './UserFunctions';
+import NavbarComponent from '../navbar/navbar';
 
 class Login extends Component {
   constructor() {
@@ -34,6 +35,8 @@ class Login extends Component {
 
   render() {
     return (
+      <React.Fragment>
+        <NavbarComponent/>
       <div className="container">
         <div className="row">
           <div className="col-md-6 mt-5 mx-auto">
@@ -71,6 +74,7 @@ class Login extends Component {
           </div>
         </div>
       </div>
+    </React.Fragment>
     )
   }
 }

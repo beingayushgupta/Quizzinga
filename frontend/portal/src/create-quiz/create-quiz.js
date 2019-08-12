@@ -1,4 +1,5 @@
 import React from 'react';
+import NavbarComponent from '../navbar/navbar';
 import {Container, Row, Col, Button} from 'react-bootstrap';
 import Leftview from './left-view';
 import Rightview from './right-view';
@@ -25,6 +26,7 @@ class CreateQuiz extends React.Component {
     render(){
         return (
             <React.Fragment>
+                <NavbarComponent/>
                 <div>
                     <Container>
                         <Row>

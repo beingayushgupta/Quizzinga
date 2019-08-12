@@ -1,4 +1,5 @@
 import React from 'react';
+import NavbarComponent from '../navbar/navbar';
 import './quiz.css';
 import { Container, Card, Row, Table, Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
@@ -6,11 +7,14 @@ import {Link} from 'react-router-dom';
 class QuizComponent extends React.Component{
     render(){
         return(
+            <React.Fragment>
+                <NavbarComponent/>
+            
             <Container>
                 <Card>
                     <Row>
                         <Col  md={4}>
-                            <h3>My Quiz's</h3>
+                            <h3>My Quizzes</h3>
                         </Col>
                         <Col md={{ span: 4, offset: 4 }}>
                             <Link to="/quiz/create"><i class="plusicon fa fa-plus fa-2x" aria-hidden="true"></i></Link>
@@ -49,6 +53,7 @@ class QuizComponent extends React.Component{
                     </Row>
                 </Card>
             </Container>
+         </React.Fragment>
         )
     }
 }
