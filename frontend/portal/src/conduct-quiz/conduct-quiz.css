@@ -1,0 +1,45 @@
+.question-image{
+    width:auto;
+    height: inherit;
+    margin: 0 auto;
+}
+.answers{
+    margin-left: 2em;
+    margin-top: 1em;
+}
+
+.row-image{
+    margin-top: 2em;
+}
+.next-button{
+    width:5em;
+    margin: 2em;
+}
+
+.question-left{
+    height: inherit;
+}
+.button {
+    background-color: #4CAF50;
+    border: none;
+    width: auto;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+  }
+
+.button5 {
+    border-radius: 50%;
+}
+.button5:focus{
+    outline: none;
+}
+  
+.all-questions {
+    padding:2em;
+    height: fit-content;
+}
