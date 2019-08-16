@@ -4,7 +4,29 @@ import {Link} from 'react-router-dom';
 import profile from '../assets/profile.gif';
 import './profile.css';
 import NavbarComponent from '../navbar/navbar';
+import axios from 'axios';
+
 class ProfileComponent extends React.Component{
+
+     constructor(props){
+        super(props);
+        this.state = {
+            quiz : []
+        }
+    }
+
+    componentDidMount(){
+        axios.get('user/profile')
+        .then(response => {
+            this.setState({
+                quiz : response.data
+            })
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
+
     render(){
         return(      
             <React.Fragment>
@@ -32,31 +54,25 @@ class ProfileComponent extends React.Component{
                     <Col xs={12} md={8}>
                         <Card>
                             <Card.Body>
+                            <h4>Quiz You have participated in:</h4>
                                 <Table striped bordered hover>
                                     <thead>
                                         <tr>
                                             <th>#</th>
                                             <th>Name</th>
+                                            <th>Started on</th>
                                             <th>Ended On</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th>1</th>
-                                            <th>Name1</th>
-                                            <th>asdad</th>
-                                        </tr>
-                                        <tr>
-                                            <th>1</th>
-                                            <th>Name1</th>
-                                            <th>asdad</th>
-                                        </tr>
-                                        <tr>
-                                            <th>1</th>
-                                            <th>Name1</th>
-                                            <th>asdad</th>
-                                        </tr>
-
+                                        {Object.entries(this.state.quiz).map(([index, quiz]) => 
+                                        (<tr>
+                                        <th>{++index}</th>
+                                        <th>{quiz[5]}</th>
+                                        <th>{quiz[6]}</th>
+                                        <th>{quiz[7]}</th> 
+                                        </tr>)
+                                    )}
                                     </tbody>
                                 </Table>
                             </Card.Body>

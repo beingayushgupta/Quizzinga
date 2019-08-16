@@ -18,18 +18,18 @@ class PreviousContests extends React.Component {
                     <Table striped bordered hover>
                         <thead>
                         <tr>
-                            <th>S.no</th>
                             <th>Name</th>
+                            <th>Started On</th>
                             <th>Ended On</th>
                         </tr>
                         </thead>
-                        <tbody>
+                         <tbody>
                         {this.props.previouscontest.map(previouscontest =>
                             (
                                 <tr>
-                                    <td>{previouscontest.contest_id}</td>
-                                    <td>{previouscontest.contest_name}</td>
-                                    <td>{previouscontest.enddate}</td>
+                                    <td>{previouscontest[5]}</td>
+                                    <td>{previouscontest[6]}</td>
+                                    <td>{previouscontest[7]}</td>
                                 </tr>
                             )
                         )}

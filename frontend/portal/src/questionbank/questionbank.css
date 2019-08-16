@@ -12,3 +12,31 @@ h3{
 a{
     color: black !important;
 }
+
+.card{
+    padding:2em;
+}
+.finalrow{
+    margin-top:2em;
+}
+
+.plusicon1{
+    float: left;
+}
+
+.cross{
+    float: right;
+}
+
+.edit{
+    float : right;
+    margin-right: 2em;
+}
+
+.marks{
+    float : right;
+}
+
+.quizbutton{
+    margin-top: 3em;
+}

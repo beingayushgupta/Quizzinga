@@ -3,13 +3,29 @@ import React from 'react';
 import './navbar.css';
 import {Navbar, Nav, NavDropdown, Form, FormControl} from 'react-bootstrap';
 import {Link, BrowserRouter} from 'react-router-dom';
+import axios from 'axios';
 
 class NavbarComponent extends React.Component {
 
     constructor(props){
         super(props);
+        this.state = {
+          name: '',
+        }
     }
    
+    componentDidMount(){
+        axios.get('/user')
+        .then(response => {
+            this.setState({
+
+                name : response.data[1] ,
+            })
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
     
     logOut(e) {
         e.preventDefault()
@@ -23,7 +39,7 @@ class NavbarComponent extends React.Component {
               <li className="nav-item">
                 <Nav.Link href="/login">Login
                 </Nav.Link>             
-            </li>
+              </li>
               <li className="nav-item">
                 <Nav.Link href="/register">Register</Nav.Link>
               </li>
@@ -34,6 +50,11 @@ class NavbarComponent extends React.Component {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <Nav.Link href="/profile"><i class="fa fa-user-circle fa-2x" aria-hidden="true"></i></Nav.Link>
+              </li>
+              <li>
+                <Nav.Link href="/profile" className="nav-link">
+                {this.state.name}
+                </Nav.Link>
               </li>
               <li className="nav-item">
                 <Nav.Link href="" onClick={this.logOut.bind(this)} className="nav-link">

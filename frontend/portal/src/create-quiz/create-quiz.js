@@ -11,18 +11,21 @@ class CreateQuiz extends React.Component {
         super(props);
         this.state = {
             QuestionSet : [1,2,3,4,5],
-            QuizQuestion : []
+            QuizQuestion : [],
+            // time :
         };    
     }
     
     
-    
+    //update time function
     updateQuizQuestion(quizQuestion){
        console.log("quizQuestion" + quizQuestion); 
         this.setState({
             QuizQuestion : quizQuestion,
         });
     }
+
+    //more function for click of create quiz button jispe api call hogi and quiz questions and time backend ko jayega and wo chutiya store karega
     render(){
         return (
             <React.Fragment>
@@ -33,6 +36,7 @@ class CreateQuiz extends React.Component {
                             <Col>
                             <Leftview
                             questionSet = {this.state.QuestionSet}
+                            // props for time function updation like below
                             updateQuizQuestion = {(quizQuestion) => this.updateQuizQuestion(quizQuestion)}
                             />
                             </Col>

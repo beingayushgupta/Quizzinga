@@ -1,12 +1,31 @@
 import React from 'react';
 import {Card, Table, Button} from 'react-bootstrap';
-
+import { participate } from '../navbar/UserFunctions'
 
 
 class UpcomingContests extends React.Component {
     constructor (props){
         super(props);
+        this.state={
+            u_id:'',
+            quiz_id:''
+        }
     }
+
+    Register(e) {
+    e.preventDefault()
+    console.log(this);
+    const entry = {
+      u_id: '',
+      quiz_id: ''
+    }
+    console.log(entry.u_id);
+    participate(entry).then(res => {
+      if (!res.error) {
+        //this.props.history.push(`/dashboard`)
+      }
+    })
+  }
 
     render(){
         return (
@@ -17,9 +36,9 @@ class UpcomingContests extends React.Component {
                     <Table striped bordered hover>
                         <thead>
                             <tr>
-                                <th>S.no</th>
                                 <th>Contest</th>
                                 <th>Starting On</th>
+                                <th>Ending On</th>
                                 <th>Register</th>
                             </tr>
                         </thead>
@@ -27,10 +46,10 @@ class UpcomingContests extends React.Component {
                             {this.props.upcomingcontest.map(upcomingcontest =>
                                 (
                                     <tr>
-                                        <td>{upcomingcontest.contest_id}</td>
-                                        <td>{upcomingcontest.contest_name}</td>
-                                        <td>{upcomingcontest.startdate}</td>
-                                        <td><Button variant="secondary" size="sm">Register</Button></td>
+                                        <td>{upcomingcontest[1]}</td>
+                                        <td>{upcomingcontest[2]}</td>
+                                        <td>{upcomingcontest[3]}</td>
+                                        <td><Button variant="secondary" onClick={this.Register.bind(this)} size="sm">Register</Button></td>
                                     </tr>
                                 )
                         )}

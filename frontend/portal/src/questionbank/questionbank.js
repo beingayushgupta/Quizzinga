@@ -3,9 +3,30 @@ import "./questionbank.css";
 import NavbarComponent from '../navbar/navbar';
 import { Container, Card, Row, Table, Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 
 class QuestionBank extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            question_banks : {}
+        }
+    }
+
+
+    componentDidMount(){
+        axios.get('/user/QuestionBank')
+        .then(response => {
+            console.log(response);
+            this.setState({
+                question_banks : response.data,
+            })
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
     render(){
         return(
             <React.Fragment>
@@ -25,28 +46,18 @@ class QuestionBank extends React.Component {
                             <Table striped bordered hover>
                                 <thead>
                                     <tr>
-                                        <th>#</th>
-                                        <th>Name</th>
-                                        <th>Ended On</th>
+                                        <th>No.</th>
+                                        <th>Name</th>    
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <th>1</th>
-                                        <th>Name1</th>
-                                        <th>asdad</th>
-                                    </tr>
-                                    <tr>
-                                        <th>1</th>
-                                        <th>Name1</th>
-                                        <th>asdad</th>
-                                    </tr>
-                                    <tr>
-                                        <th>1</th>
-                                        <th>Name1</th>
-                                        <th>asdad</th>
-                                    </tr>
-
+                                    {Object.entries(this.state.question_banks).map(([index, question_bank]) => 
+                                        (<tr>
+                                        <th>{++index}</th>
+                                        <th>{question_bank[1]}</th>
+                                        <th><a href="questionbank/id/edit"><i class="fa fa-pencil edit" aria-hidden="true"></i></a></th>
+                                        </tr>)
+                                    )}
                                 </tbody>
                             </Table>
                         </Card.Body>

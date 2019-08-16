@@ -21,23 +21,25 @@ class OngoingContests extends React.Component {
 
             <Card>
                 <Card.Body>
-                    <Card.Title>Live Contest</Card.Title>
+                    <Card.Title>Registered Contest</Card.Title>
                     <Table striped bordered hover>
                         <thead>
                             <tr>
-                                <th>S.no</th>
+                                
                                 <th>Contest</th>
+                                <th>Starting On</th>
                                 <th>Ending On</th>
                                 <th>Start</th>
                             </tr>
                         </thead>
                         <tbody>
                             {this.props.ongoingcontest.map(contest =>
-                                (
+                                ( 
                                     <tr>
-                                        <td>{contest.contest_id}</td>
-                                        <td>{contest.contest_name}</td>
-                                        <td>{contest.enddate}</td>
+                                        
+                                        <td>{contest[5]}</td>
+                                        <td>{contest[6]}</td>
+                                        <td>{contest[7]}</td>
                                         <td><Button variant="secondary" size="sm"><Link to="/quiz/1/conduct">Start</Link></Button></td>
                                     </tr>
                                 )

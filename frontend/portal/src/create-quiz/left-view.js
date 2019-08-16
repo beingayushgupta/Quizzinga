@@ -9,16 +9,20 @@ class Leftview extends React.Component {
         this.state = {
             nameofdropown : "Question Set",
             disable: false,
+            //disable1:false,time :
             selectquestionset : null,
             numberofquestion : null,    
+            isLoading: true,
         };
     }
      
 
     onSelectingQuestionSet(questionset){
+        //time set karne ke liye code
         this.setState({
             nameofdropown : "Question Set " + questionset,
             disable : true,
+            disable1 : true,
             selectquestionset : questionset,
         });
     }
@@ -29,9 +33,14 @@ class Leftview extends React.Component {
         });
     }
 
+    // componentDidMount(){
+    //     return fetch()
+    // }
+
     getQuestions(){
         console.log("QuestionSet" + this.state.selectquestionset);
         console.log("number of question" + this.state.numberofquestion);
+        //api call to get data
         const data = [
             {
                 "question_id" : 1,
@@ -74,7 +83,7 @@ class Leftview extends React.Component {
                 "option4" : 'd',
             }
         ]
-
+        //this.props.updateTime(this.state.time);
         this.props.updateQuizQuestion(data);
     }
 
@@ -102,6 +111,9 @@ class Leftview extends React.Component {
                             </InputGroup>
                             </Col>
                         </div>
+                        
+
+                    
                         
                     </Row>
                     

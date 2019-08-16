@@ -10,6 +10,7 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            data : [],//change to this
             nr: 0,
             total: data.length,
             showButton: false,
@@ -35,7 +36,11 @@ class Main extends React.Component {
             correct: data[nr].correct,
             nr: this.state.nr + 1
         });
-    }    
+    }  
+    
+    componentDidMount(){
+        //api call
+    }
     
     pushDataPrev(nr) {
         this.setState({
