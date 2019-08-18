@@ -38,11 +38,11 @@ def register():
     created = datetime.utcnow()
     photo=None
 	
-    cur.execute("INSERT INTO user (f_name, l_name, email, password,photo,college_id) VALUES ('" + 
+    cur.execute("INSERT INTO user (f_name, l_name, email, password,college_id) VALUES ('" +
+        str(first_name) + "', '" + 
 		str(last_name) + "', '" + 
 		str(email) + "', '" + 
-        str(password) + "', '" +
-        str(photo) + "', '" + 
+        str(password) + "', '" + 
 		str(college_id) + "' )")
     conn.commit()
 	
@@ -89,7 +89,7 @@ def getdashboard():
     if 'id' in session:
         u_id = session['id']
     #all quizes
-    cur.execute("SELECT * FROM quiz where startTime>CURRENT_TIMESTAMP")
+    cur.execute("SELECT * FROM quiz where startTime>CURRENT_TIMESTAMP and quiz_id not in (SELECT user_participate_quiz.quiz_id FROM user_participate_quiz,quiz where user_participate_quiz.u_id='" + str(u_id) +"' and quiz.quiz_id=user_participate_quiz.quiz_id )")
     upcoming_quiz=cur.fetchall()
     #upcoming quiz(all)
     cur.execute("SELECT * FROM user_participate_quiz,quiz where user_participate_quiz.u_id='" + str(u_id) +"' and quiz.quiz_id=user_participate_quiz.quiz_id and quiz.endTime>CURRENT_TIMESTAMP ")
@@ -281,7 +281,9 @@ def getQuesBank():
 def participate():
     conn=mysql.connect()
     cur = conn.cursor()
-    u_id = request.get_json()['u_id']
+    u_id=''
+    if 'id' in session:
+        u_id = session['id']
     quiz_id = request.get_json()['quiz_id']
     feedback=None
     
@@ -292,7 +294,7 @@ def participate():
     conn.commit()
     
     result = {
-        "done":dine
+        "success":"done"
     }
 
     return jsonify({'result' : result})

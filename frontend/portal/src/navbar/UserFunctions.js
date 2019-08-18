@@ -44,7 +44,6 @@ export const getProfile = user => {
 export const participate = user => {
   return axios
     .post('user/participate', {
-      u_id:user.u_id,
       quiz_id:user.quiz_id
     })
     .then(response => {

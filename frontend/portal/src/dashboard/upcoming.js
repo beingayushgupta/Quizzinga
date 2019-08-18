@@ -7,22 +7,18 @@ class UpcomingContests extends React.Component {
     constructor (props){
         super(props);
         this.state={
-            u_id:'',
             quiz_id:''
         }
     }
 
     Register(e) {
     e.preventDefault()
-    console.log(this);
     const entry = {
-      u_id: '',
-      quiz_id: ''
+      quiz_id: e.target.id
     }
-    console.log(entry.u_id);
     participate(entry).then(res => {
       if (!res.error) {
-        //this.props.history.push(`/dashboard`)
+        window.location='/dashboard';
       }
     })
   }
@@ -49,7 +45,7 @@ class UpcomingContests extends React.Component {
                                         <td>{upcomingcontest[1]}</td>
                                         <td>{upcomingcontest[2]}</td>
                                         <td>{upcomingcontest[3]}</td>
-                                        <td><Button variant="secondary" onClick={this.Register.bind(this)} size="sm">Register</Button></td>
+                                        <td><Button variant="secondary" id={upcomingcontest[0]} onClick={this.Register.bind(this)} size="sm">Register</Button></td>
                                     </tr>
                                 )
                         )}

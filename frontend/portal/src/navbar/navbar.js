@@ -70,7 +70,7 @@ class NavbarComponent extends React.Component {
                 <Navbar bg="dark" expand="lg"> 
                     <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="/"><i class="fa fa-home fa-2x" aria-hidden="true"></i></Nav.Link>
+                        <Nav.Link href="/dashboard"><i class="fa fa-home fa-2x" aria-hidden="true"></i></Nav.Link>
                         <Nav.Link style={{fontWeight:'bold', fontSize:'1.5em'}}>Quizzinga</Nav.Link>
                     </Nav>
                     <Form inline>
